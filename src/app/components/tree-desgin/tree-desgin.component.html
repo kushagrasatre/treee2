@@ -1,0 +1,54 @@
+<div class="container">
+    <!-- search box -->
+    <div class="row">
+        <div class="col-md-12">
+        <h2 style="text-align: center;">DATA TABLE</h2>
+            <div id="custom-search-input"  style="margin-bottom: 20px;">
+                <div class="input-group col-md-12">
+                    <input type="text"  (keyup)="fn($event)" class="search-box" style="margin-bottom: 0px;" class="form-control input-lg"  placeholder="search text goes here" />
+                    <!-- <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="navbar-toggler-icon fa fa-bars"> </i>
+                        </button>
+                    </span> -->
+                    <!-- <div class="SearchBox">
+                        <input type="text" class="SearchBox-input" placeholder="BUSCA ALGO COOL">
+                      
+                          <button class="SearchBox-button">
+                            <i class="SearchBox-icon  material-icons">search</i>
+                          </button>
+                        
+                      </div> -->
+                </div>
+            </div>
+        </div>
+  </div>
+  
+  <!-- content part -->
+  <div class="row circle-records-container">
+  <div class="col-6 circle-outer-container">
+      <article class="sideSelector">
+        </article>
+  </div>
+  <div class="col-6 records-container">
+    
+      <div class="record-container" *ngIf="parentNodeContent!==undefined">
+        <h5>{{parentNodeContent.name}} Plan Details</h5>
+        <h5>PLAN ID: <span>{{parentNodeContent.plan_id}}</span></h5>
+        <h5>SERVICE RESOURCE ID: <span>{{parentNodeContent.service_resource_id}}</span></h5>
+        <h5>CREATED <span>{{parentNodeContent.created}}</span></h5>
+        <h5>STATUS: <span>{{parentNodeContent.status}}</span></h5>
+        <H5>WATING: <span *ngIf="parentNodeContent.leads.length<1">{{parentNodeContent.name}} is empty...</span>
+          <span *ngIf="parentNodeContent.leads.length>0">
+            <span *ngFor="let name of parentNodeContent.leads">
+              {{name.name}}
+            </span>
+          </span>
+        </H5>
+        <button class="edit">EDIT</button>
+  <button class="DELETE" >DELETE</button>
+  </div>
+
+  
+  </div>
+  
